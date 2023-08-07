@@ -30,7 +30,7 @@ def create(name):
     net_config = {}
     network_mode = "default"
     cmd = ["androidboot.hardware=rk30board",
-           "androidboot.redroid_fps=24",
+           "androidboot.dobox_fps=24",
            "androidboot.selinux=permissive",
            "qemu=1",
            "androidboot.dobox_width=720",
