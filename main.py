@@ -116,7 +116,8 @@ def create(name):
                        "SYS_RESOURCE",
                        "SYS_PTRACE",
                        "WAKE_ALARM",
-                       "BLOCK_SUSPEND"],
+                       "BLOCK_SUSPEND",
+                       "MKNOD"],
             "RestartPolicy": {
                 "Name": "unless-stopped",
                 "MaximumRetryCount": 0
@@ -218,6 +219,11 @@ def create(name):
                     "PathInContainer": "/dev/ashmem",
                     "CgroupPermissions": "rwm"
                 }
+            ],
+            "DeviceCgroupRules": [
+                "c 10:* rmw",
+                "b 253:* rmw",
+                "b 7:* rmw"
             ],
             "SecurityOpt": [
                 "seccomp=unconfined"
